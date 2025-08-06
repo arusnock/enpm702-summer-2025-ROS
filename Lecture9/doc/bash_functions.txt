@@ -1,0 +1,22 @@
+# for .zshrc
+function ros702 {
+    #ws="/home/zeid/Documents/ros702_ws"
+    source /opt/ros/jazzy/setup.zsh
+    #source "${ws}/install/setup.zsh"
+    #eval "$(register-python-argcomplete ros2)"
+    #eval "$(register-python-argcomplete colcon)"
+    #cd ${ws}
+}
+# call the function
+ros702
+
+# for .bashrc
+function ros702 {
+    #ws="/home/zeid/Documents/ros702_ws"
+    source /opt/ros/jazzy/setup.bash
+    #source "${ws}/install/setup.bash"
+    #source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+    #cd ${ws}
+}
+# call the function
+ros702
