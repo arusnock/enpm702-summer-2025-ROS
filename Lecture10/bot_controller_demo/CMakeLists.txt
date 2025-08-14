@@ -12,12 +12,14 @@ find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(rcl_interfaces REQUIRED)
 
 # Add include directories
 include_directories(include)
 
 # Create executable
 add_executable(random_controller src/random_controller.cpp)
+add_executable(proportional_controller src/proportional_controller.cpp)
 
 # Specify dependencies
 ament_target_dependencies(random_controller
@@ -28,9 +30,19 @@ ament_target_dependencies(random_controller
   tf2_geometry_msgs
 )
 
+ament_target_dependencies(proportional_controller
+  rclcpp
+  geometry_msgs
+  nav_msgs
+  tf2
+  tf2_geometry_msgs
+  rcl_interfaces
+)
+
 # Install targets
 install(TARGETS
   random_controller
+  proportional_controller
   DESTINATION lib/${PROJECT_NAME}
 )
 
