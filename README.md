@@ -75,4 +75,9 @@ function ros702_ws {
 }
  ```
 
+### Testing Simulation with Robot
+
+1. Restart your terminal
+2. Run `ros2 launch turtlebot3_gazebo empty_world.launch.py`
+
 
