@@ -14,7 +14,7 @@ find_package(std_msgs REQUIRED)
 include_directories(include)
 
 add_executable(publisher_demo src/main.cpp src/publisher_demo.cpp)
-ament_target_dependencies(publisher_demo rclcpp)
+ament_target_dependencies(publisher_demo rclcpp std_msgs)
 
 # Add this before ament_package()
 install(TARGETS

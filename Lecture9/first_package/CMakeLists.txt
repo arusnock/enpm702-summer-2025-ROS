@@ -6,17 +6,17 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # Add include directories
-# include_directories(include)
+include_directories(include)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 
-add_executable(hello_demo src/main.cpp)
-ament_target_dependencies(hello_demo rclcpp)
-
-# add_executable(hello_demo src/main.cpp src/hello_node.cpp)
+# add_executable(hello_demo src/main.cpp)
 # ament_target_dependencies(hello_demo rclcpp)
+
+add_executable(hello_demo src/main.cpp src/hello_node.cpp)
+ament_target_dependencies(hello_demo rclcpp)
 
 # Add this before ament_package()
 install(TARGETS
