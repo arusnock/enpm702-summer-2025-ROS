@@ -50,10 +50,10 @@ You have two workspaces:
  - `.bashrc`: Edit the following function with your custom paths:
  ```bash
  function ros702 {
+    source /opt/ros/jazzy/setup.bash
     export TURTLEBOT3_MODEL=waffle
     ros702_ws="<path-to>/ros702_ws"
     turtlebot3_ws="<path-to>/turtlebot3_ws"
-    source /opt/ros/jazzy/setup.bash
     source "${turtlebot3_ws}/install/setup.bash"
     source "${ros702_ws}/install/setup.bash"
     source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
@@ -63,8 +63,8 @@ You have two workspaces:
   - `.zshrc`: Edit the following function with your custom paths:
  ```bash
 function ros702_ws {
-  export TURTLEBOT3_MODEL=waffle
   source /opt/ros/jazzy/setup.zsh
+  export TURTLEBOT3_MODEL=waffle
   ros702_ws='/home/zeidk/ros702_ws'
   turtlebot3_ws='/home/zeidk/turtlebot3_ws'
   source ${turtlebot3_ws}/install/setup.zsh
