@@ -16,7 +16,7 @@ Repository for ROS packages
 ### Install Gazebo Harmonic
 
 - See [Gazebo Harmonic Installation](https://gazebosim.org/docs/harmonic/install_ubuntu/)
-- After installation, check Gazebo Harmonic is installed: `gz sim`
+- After installation, check Gazebo Harmonic is installed: `gz sim` (Ctrl + C to terminate Gazebo)
     
 ### Build Turtlebot3 Packages for Jazzy
 - Create a new ROS workspace: 
@@ -43,10 +43,10 @@ cd ~/turtlebot3_ws && colcon build --symlink-install
 You have two workspaces:
  - `ros702_ws` contains class packages.
  - `turtlebot3_ws` contains packages related to the Turtlebot.
- - Edit your bash shell script (`.bashrc`) function to source multiple `setup.bash` files in the following order:
-    1. Source `setup.bash` from ROS
-    2. Source`setup.bash` from `turtlebot3_ws`
-    3. Source `setup.bash` from `ros702_ws`
+ - Edit your bash shell script (`.bashrc` or `.zshrc`) function to source multiple `setup.bash` (`setup.zsh`) files in the following order:
+    1. Source `setup.bash` (`setup.zsh`) from ROS
+    2. Source`setup.bash` (`setup.zsh`) from `turtlebot3_ws`
+    3. Source `setup.bash` (`setup.zsh`) from `ros702_ws`
  - `.bashrc`: Edit the following function with your custom paths:
  ```bash
  function ros702 {
@@ -54,8 +54,8 @@ You have two workspaces:
     ros702_ws="<path-to>/ros702_ws"
     turtlebot3_ws="<path-to>/turtlebot3_ws"
     source /opt/ros/jazzy/setup.bash
-    source "${ros702_ws}/install/setup.bash"
     source "${turtlebot3_ws}/install/setup.bash"
+    source "${ros702_ws}/install/setup.bash"
     source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
     cd ${ros702_ws}
 }
