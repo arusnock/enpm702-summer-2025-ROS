@@ -1,6 +1,6 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, PythonExpression
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 # This function must be defined
@@ -52,7 +52,7 @@ def generate_launch_description():
         output="screen",
         parameters=[{
             'use_sim_time': True,
-            'publish_stamped': PythonExpression(["'", LaunchConfiguration("controller_type"), "' == 'gazebo'"]),
+            'controller_type': LaunchConfiguration("controller_type"),
             'linear_min': LaunchConfiguration("linear_min"),
             'linear_max': LaunchConfiguration("linear_max"),
             'angular_min': LaunchConfiguration("angular_min"),
