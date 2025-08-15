@@ -3,9 +3,13 @@
 <package format="3">
   <name>parameters_demo</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>A ROS2 demonstration package showcasing parameter management, dynamic
+    reconfiguration, and parameter validation techniques. This package provides practical examples
+    of parameter declaration with descriptors, runtime parameter updates, parameter constraints and
+    ranges, callback-based parameter handling, and integration with sensor data processing including
+    camera and radar systems.</description>
   <maintainer email="zeid.kootbally@nist.gov">zeid</maintainer>
-  <license>TODO: License declaration</license>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

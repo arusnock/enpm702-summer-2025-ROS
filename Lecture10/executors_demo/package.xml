@@ -3,9 +3,13 @@
 <package format="3">
   <name>executors_demo</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>A comprehensive ROS2 demonstration package showcasing different executor types and
+    callback group configurations. This package includes examples of single-threaded executors,
+    multi-threaded executors with reentrant callback groups, mutually exclusive callback groups, and
+    camera simulation nodes for remapping demonstrations. The package demonstrates parallel
+    execution, thread safety, and parameter management in ROS2 applications.</description>
   <maintainer email="zeidk@umd.edu">zeidk</maintainer>
-  <license>TODO: License declaration</license>
+ <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
