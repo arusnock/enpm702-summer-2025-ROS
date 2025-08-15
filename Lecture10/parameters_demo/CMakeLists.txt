@@ -82,12 +82,12 @@ install(DIRECTORY
   # PATTERN "*.launch.xml"
 )
 
-# # Install config files (if any)
-# install(DIRECTORY
-#   config
-#   DESTINATION share/${PROJECT_NAME}
-#   FILES_MATCHING PATTERN "*.yaml"
-# )
+# Install config files (if any)
+install(DIRECTORY
+  config
+  DESTINATION share/${PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.yaml"
+)
 
 # Testing
 if(BUILD_TESTING)

@@ -11,11 +11,15 @@ CameraDemoNode::CameraDemoNode()
   camera_rate_(60),
   frame_counter_(0)
 {
-  // Descriptor for camera_name
+
+  // Declare all parameters for the node
+  
+  // Declare camera_name parameter
   rcl_interfaces::msg::ParameterDescriptor camera_name_desc;
   camera_name_desc.description = "Camera name";
+  this->declare_parameter("camera_name", "cameraX", camera_name_desc);
 
-// Descriptor for camera_rate
+  // Declare camera_rate parameter with integer range constraint
   rcl_interfaces::msg::ParameterDescriptor camera_rate_desc;
   camera_rate_desc.description = "Camera frame rate in Hz";
   rcl_interfaces::msg::IntegerRange rate_range;
@@ -23,40 +27,15 @@ CameraDemoNode::CameraDemoNode()
   rate_range.to_value = 60;
   rate_range.step = 1;
   camera_rate_desc.integer_range.push_back(rate_range);
-
-// Declare multiple parameters at once
-this->declare_parameters(
-    "",  // namespace
-    {
-        {"camera_name", rclcpp::ParameterValue("camera"), camera_name_desc},
-        {"camera_rate", rclcpp::ParameterValue(60), camera_rate_desc}
-    }
-);
-
-  // // Declare all parameters for the node
-  
-  // // Declare camera_name parameter
-  // rcl_interfaces::msg::ParameterDescriptor camera_name_desc;
-  // camera_name_desc.description = "Camera name";
-  // this->declare_parameter("camera_name", "camera", camera_name_desc);
-
-  // // Declare camera_rate parameter with integer range constraint
-  // rcl_interfaces::msg::ParameterDescriptor camera_rate_desc;
-  // camera_rate_desc.description = "Camera frame rate in Hz";
-  // rcl_interfaces::msg::IntegerRange rate_range;
-  // rate_range.from_value = 10;
-  // rate_range.to_value = 60;
-  // rate_range.step = 1;
-  // camera_rate_desc.integer_range.push_back(rate_range);
-  // this->declare_parameter("camera_rate", 60, camera_rate_desc);
+  this->declare_parameter("camera_rate", 60, camera_rate_desc);
 
   // Get Parameters
-  camera_name_ = this->get_parameter("camera_name").as_string();
+  camera_name_ = this->get_parameter("camera_name").get_parameter_value().get<std::string>();
   camera_rate_ = this->get_parameter("camera_rate").as_int();
 
   // Register parameter callback for dynamic parameter updates
-  param_callback_handle_ = this->add_on_set_parameters_callback(
-    std::bind(&CameraDemoNode::parameter_update_callback, this, std::placeholders::_1));
+  // param_callback_handle_ = this->add_on_set_parameters_callback(
+  //   std::bind(&CameraDemoNode::parameter_update_callback, this, std::placeholders::_1));
 
   // Generate initial random image data
   generate_random_image();
