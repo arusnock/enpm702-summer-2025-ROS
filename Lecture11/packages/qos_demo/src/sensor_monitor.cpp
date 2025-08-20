@@ -1,7 +1,7 @@
-// src/sensor_monitor.cpp
 #include "qos_demo/sensor_monitor.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <rclcpp/rclcpp.hpp>
 
 SensorMonitor::SensorMonitor() : Node("sensor_monitor")
 {
@@ -48,6 +48,7 @@ SensorMonitor::SensorMonitor() : Node("sensor_monitor")
                     custom_count, msg->temperature);
       }
     }
+    
   );
 
   // Timer for publishing at 10Hz
